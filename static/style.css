@@ -1,0 +1,44 @@
+:root {
+    font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+    color: #18202b;
+    background: #f3f6fa;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.topbar {
+    padding: 20px 28px;
+    background: #121826;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+.topbar h1 { margin: 0 0 4px; font-size: 26px; }
+.topbar p { margin: 0; opacity: .78; }
+button { border: 0; border-radius: 8px; padding: 10px 15px; cursor: pointer; font-weight: 700; }
+.primary { background: #fff; color: #121826; }
+.ghost { background: #e8edf4; color: #273245; }
+.container { max-width: 1400px; margin: 24px auto; padding: 0 18px 32px; }
+.panel { background: #fff; border: 1px solid #dbe2ea; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 18px rgba(25, 35, 50, .05); }
+.panel-title { padding: 12px 16px; font-weight: 800; border-bottom: 1px solid #e7ebf0; display: flex; justify-content: space-between; align-items: center; }
+#sourceCode { width: 100%; min-height: 330px; resize: vertical; border: 0; padding: 18px; outline: 0; font-family: Consolas, monospace; font-size: 14px; line-height: 1.55; }
+.phase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0; }
+.phase-card { background: #fff; border: 1px solid #dbe2ea; border-radius: 10px; padding: 14px; display: flex; justify-content: space-between; align-items: center; }
+.phase-card span { font-size: 12px; font-weight: 800; padding: 4px 8px; border-radius: 99px; background: #eef2f7; }
+.phase-card.pass span { background: #dff5e7; color: #126a32; }
+.phase-card.fail span { background: #ffe3e3; color: #9b1c1c; }
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.wide { grid-column: 1 / -1; }
+.table-wrap { overflow: auto; max-height: 300px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { border-bottom: 1px solid #eef2f6; text-align: left; padding: 9px 12px; white-space: nowrap; }
+th { background: #f8fafc; position: sticky; top: 0; }
+.output { padding: 14px; min-height: 120px; margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-size: 13px; overflow: auto; }
+.output.empty { color: #677284; }
+.error-item { padding: 10px 12px; border-bottom: 1px solid #f0d4d4; }
+.error-item:last-child { border-bottom: 0; }
+.error-phase { font-weight: 800; margin-right: 8px; }
+.help { margin-top: 18px; }
+.help pre { margin: 0; padding: 16px; overflow: auto; font-family: Consolas, monospace; }
+@media (max-width: 900px) { .phase-grid, .result-grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } }

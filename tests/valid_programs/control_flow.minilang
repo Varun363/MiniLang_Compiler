@@ -1,0 +1,14 @@
+program Control {
+    int x;
+    bool ok;
+    x = 3;
+    ok = x > 0;
+    if (ok) {
+        print(x);
+    } else {
+        print(0);
+    }
+    while (x > 0) {
+        x = x - 1;
+    }
+}

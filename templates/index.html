@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MiniLang Compiler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+    <div>
+        <h1>MiniLang Compiler</h1>
+        <p>Compiler Design &amp; System Programming PBL</p>
+    </div>
+    <button id="compileBtn" class="primary">Compile</button>
+</header>
+
+<main class="container">
+    <section class="panel editor-panel">
+        <div class="panel-title">
+            <span>Source Code</span>
+            <button id="sampleBtn" class="ghost">Load Sample</button>
+        </div>
+        <textarea id="sourceCode" spellcheck="false">{{ default_code }}</textarea>
+    </section>
+
+    <section class="phase-grid">
+        <div class="phase-card" id="phase-lexical"><strong>Lexical</strong><span>NOT RUN</span></div>
+        <div class="phase-card" id="phase-syntax"><strong>Syntax</strong><span>NOT RUN</span></div>
+        <div class="phase-card" id="phase-semantic"><strong>Semantic</strong><span>NOT RUN</span></div>
+        <div class="phase-card" id="phase-intermediate_code"><strong>Intermediate Code</strong><span>NOT RUN</span></div>
+    </section>
+
+    <section class="result-grid">
+        <div class="panel">
+            <div class="panel-title">Tokens</div>
+            <div class="table-wrap"><table id="tokenTable"><thead><tr><th>Lexeme</th><th>Token</th><th>Line</th><th>Column</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="panel">
+            <div class="panel-title">Symbol Table</div>
+            <div class="table-wrap"><table id="symbolTable"><thead><tr><th>Name</th><th>Type</th><th>Scope</th><th>Line</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="panel">
+            <div class="panel-title">Errors</div>
+            <div id="errors" class="output empty">No compilation run yet.</div>
+        </div>
+        <div class="panel">
+            <div class="panel-title">Abstract Syntax Tree</div>
+            <pre id="astTree" class="output"></pre>
+        </div>
+        <div class="panel wide">
+            <div class="panel-title">Three-Address Code</div>
+            <pre id="tac" class="output"></pre>
+        </div>
+    </section>
+
+    <section class="panel help">
+        <div class="panel-title">MiniLang Quick Reference</div>
+        <pre>program Name {
+    int x;
+    float price;
+    bool ok;
+
+    x = 10;
+    price = x + 5;
+    ok = x &gt; 0;
+
+    if (ok) {
+        print(x);
+    } else {
+        print(price);
+    }
+
+    while (x &gt; 0) {
+        x = x - 1;
+    }
+}</pre>
+    </section>
+</main>
+
+<script>
+    const sampleCode = {{ default_code|tojson }};
+</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

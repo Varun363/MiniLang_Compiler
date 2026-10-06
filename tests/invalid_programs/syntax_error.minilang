@@ -1,0 +1,4 @@
+program SyntaxErr {
+    int x
+    x = 10;
+}

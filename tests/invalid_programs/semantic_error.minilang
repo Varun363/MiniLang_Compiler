@@ -1,0 +1,5 @@
+program SemErr {
+    int x;
+    int x;
+    y = 20;
+}
